@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { Quiz } from "model/Quiz";
 import { QuestionState } from "model/QuestionState";
 import { ProgressBar } from "component/ProgressBar/ProgressBar";
 import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
 import { QuestionResult } from "component/QuestionResult/QuestionResult";
+import { SubmitButton } from "component/SubmitButton";
 
 interface QuizViewProps {
   quiz: Quiz;
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+`;
 
 export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   const quizLength = quiz.questions.length;
@@ -33,7 +43,7 @@ export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   };
 
   return (
-    <>
+    <Container>
       <ProgressBar questionStates={questionStates} />
       {currentIndex < quizLength ? (
         <>
@@ -48,6 +58,7 @@ export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
         />
       )}
-    </>
+      <SubmitButton isContinue={false /* TODO: Make functional*/} />
+    </Container>
   );
 };

@@ -4,6 +4,7 @@ import "fonts/fonts.css";
 export const MultiChoiceQContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const QuestionAndImageContainer = styled.div`
