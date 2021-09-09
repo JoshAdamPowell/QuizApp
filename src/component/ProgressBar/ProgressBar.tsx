@@ -1,7 +1,6 @@
 import React from "react";
 import { QuestionState } from "model/QuestionState";
-import { ProgressDot } from "component/ProgressDot";
-import { ProgressContainer } from "component/ProgressContainer";
+import { ProgressDot, ProgressContainer } from "./styled";
 
 interface ProgressBarProps {
   questionStates: QuestionState[];

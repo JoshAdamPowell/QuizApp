@@ -13,11 +13,6 @@ interface ProgressDotProps {
   state: QuestionState;
 }
 
-const progressDotAnim = (state: QuestionState) => keyframes`
-  100%{ background-color: ${getFillColor(state)};
-      border-color:  ${getBorderColor(state)};
-  }`;
-
 const getBorderColor = (state: QuestionState) => {
   switch (state) {
     case QuestionState.UNANSWERED:
@@ -40,6 +35,11 @@ const getFillColor = (state: QuestionState) => {
   }
 };
 
+const progressDotAnim = (state: QuestionState) => keyframes`
+  100%{ background-color: ${getFillColor(state)};
+      border-color:  ${getBorderColor(state)};
+  }`;
+
 export const ProgressDot = styled.div`
   animation: ${({ state }: ProgressDotProps) => progressDotAnim(state)} 1s
     forwards;
@@ -50,4 +50,11 @@ export const ProgressDot = styled.div`
   border: 2px solid ${getBorderColor(QuestionState.UNANSWERED)};
   border-radius: 50%;
   background-color: ${getFillColor(QuestionState.UNANSWERED)};
+`;
+
+export const ProgressContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Quiz } from "model/Quiz";
 import { QuestionState } from "model/QuestionState";
-import { ProgressBar } from "view/ProgressBar";
+import { ProgressBar } from "component/ProgressBar/ProgressBar";
 import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
 
 interface QuizViewProps {
@@ -38,7 +38,7 @@ export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
         <>
           <MultiChoiceQComp question={quiz.questions[currentIndex]} />
           <button onClick={() => updateResult(Math.random() < 0.5)}>
-            Next Question{" "}
+            Next Question
           </button>
         </>
       ) : (
