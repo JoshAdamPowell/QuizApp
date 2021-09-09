@@ -62,8 +62,8 @@ export const ProgressBar = ({
 }: ProgressBarProps): React.ReactElement => {
   return (
     <ProgressBarContainer>
-      {questionStates.map((state) => (
-        <ProgressDot state={state} />
+      {questionStates.map((state, key) => (
+        <ProgressDot state={state} key={key} />
       ))}
     </ProgressBarContainer>
   );
