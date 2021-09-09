@@ -3,7 +3,7 @@ import React from "react";
 import { Quiz } from "model/Quiz";
 import { getTestQuiz } from "data/getQuiz";
 import { QuizView } from "view/QuizView";
-import { MultiChoiceQComp } from "component/MultiChoiceQComp";
+import { MultiChoiceQComp } from "component/MultiChoiceQComp/MultiChoiceQComp";
 
 const App = () => {
   const quiz = getTestQuiz();
