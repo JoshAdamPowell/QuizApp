@@ -1,10 +1,61 @@
 import React from "react";
 import { Answer } from "model/Answer";
+import styled from "styled-components";
+
+interface AnswerContentProps {
+  answer: Answer;
+}
+
+const AnswerContentContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const AnswerContentItem = styled.div`
+  width: 50%;
+`;
+
+const StyledImg = styled.img`
+  max-width: 100px;
+  max-height: 100px;
+`;
+
+const AnswerContent = ({ answer }: AnswerContentProps) => {
+  return answer.text && answer.image ? (
+    <AnswerContentContainer>
+      <AnswerContentItem>{answer.text}</AnswerContentItem>
+      <AnswerContentItem>
+        <StyledImg src={answer.image} />
+      </AnswerContentItem>
+    </AnswerContentContainer>
+  ) : (
+    <div>
+      {answer.text ? (
+        <div>{answer.text}</div>
+      ) : (
+        <StyledImg src={answer.image} />
+      )}
+    </div>
+  );
+};
 
 interface AnswerCompProps {
   answer: Answer;
 }
 
+const AnswerButton = styled.button`
+  background: #41bcec;
+  border: 2px solid #259bbf;
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+`;
+
 export const AnswerComp = ({ answer }: AnswerCompProps) => (
-  <div>{answer.text ? answer.text : "image placeholder"}</div>
+  <AnswerButton>
+    <AnswerContent answer={answer} />
+  </AnswerButton>
 );

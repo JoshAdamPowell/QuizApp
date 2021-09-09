@@ -10,7 +10,6 @@ const App = () => {
   return (
     <section>
       <h1>This is my React app!</h1>
-      {/* <QuizView quiz={quiz} /> */}
       <MultiChoiceQComp question={quiz.questions[0]} />
     </section>
   );
