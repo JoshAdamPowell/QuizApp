@@ -1,5 +1,4 @@
 import React from "react";
-import { Quiz } from "model/Quiz";
 import styled, { keyframes } from "styled-components";
 import { QuestionState } from "model/QuestionState";
 
