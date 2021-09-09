@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import "css/fonts.css";
+import { darkBlue, midBlue, white } from "colours/colours";
 
 export const AnswerContentContainer = styled.div`
   display: flex;
@@ -23,15 +24,15 @@ export const StyledImg = styled.img`
 `;
 
 export const AnswerButton = styled.button`
-  background: #41bcec;
-  border: 2px solid #259bbf;
-  color: white;
+  background: ${midBlue};
+  border: 2px solid ${darkBlue};
+  color: ${white};
   padding: 16px;
   border-radius: 10px;
   height: 100%;
   width: 100%;
 
   &:hover {
-    background: #259bbf;
+    background: ${darkBlue};
   }
 `;
