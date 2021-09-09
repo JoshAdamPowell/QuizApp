@@ -42,8 +42,9 @@ const ProgressDot = styled.div`
   display: inline-block;
   width: 10px;
   height: 10px;
-  border: 2px solid;
+  border: 2px solid #aeadad;
   border-radius: 50%;
+  background-color: #eeeded;
 `;
 
 interface ProgressBarProps {
