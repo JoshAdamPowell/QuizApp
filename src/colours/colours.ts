@@ -28,4 +28,5 @@ export const darkYellow = "#edad0e";
 
 export const black = "#3d3e3e";
 export const white = "#ffffff";
-export const grey = "#eeeded";
+export const midGrey = "#eeeded";
+export const darkGrey = "#aeadad";
