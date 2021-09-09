@@ -11,11 +11,17 @@ interface MultiChoiceQProps {
 const MultiChoiceQContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+`;
+
+const QuestionAndImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 500px;
 `;
 
 const StyledQuestionImg = styled.img`
-  max-height: 300px;
+  height: 300px;
 `;
 
 const QuestionContainer = styled.div`
@@ -28,8 +34,10 @@ export const MultiChoiceQComp = ({
   question,
 }: MultiChoiceQProps): React.ReactElement => (
   <MultiChoiceQContainer>
-    {question.image && <StyledQuestionImg src={question.image} />}
-    <QuestionContainer>{question.text}</QuestionContainer>
+    <QuestionAndImageContainer>
+      {question.image && <StyledQuestionImg src={question.image} />}
+      <QuestionContainer>{question.text}</QuestionContainer>
+    </QuestionAndImageContainer>
     <AnswersComp answers={question.answers} />
   </MultiChoiceQContainer>
 );

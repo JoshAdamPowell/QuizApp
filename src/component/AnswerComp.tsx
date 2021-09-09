@@ -11,6 +11,7 @@ const AnswerContentContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  height: 120px;
 `;
 
 const AnswerContentItem = styled.div`
@@ -19,6 +20,7 @@ const AnswerContentItem = styled.div`
 
 const AnswerTextWrapper = styled.div`
   font-family: "Open Sans", sans-serif;
+  font-size: 130%;
 `;
 
 const StyledImg = styled.img`
@@ -37,13 +39,13 @@ const AnswerContent = ({ answer }: AnswerContentProps) => {
       </AnswerContentItem>
     </AnswerContentContainer>
   ) : (
-    <div>
+    <AnswerContentContainer>
       {answer.text ? (
         <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
       ) : (
         <StyledImg src={answer.image} />
       )}
-    </div>
+    </AnswerContentContainer>
   );
 };
 
@@ -59,6 +61,10 @@ const AnswerButton = styled.button`
   border-radius: 10px;
   height: 100%;
   width: 100%;
+
+  &:hover {
+    background: #259bbf;
+  }
 `;
 
 export const AnswerComp = ({ answer }: AnswerCompProps) => (
