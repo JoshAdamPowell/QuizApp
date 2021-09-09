@@ -3,7 +3,7 @@ import { Quiz } from "model/Quiz";
 import { QuestionState } from "model/QuestionState";
 import { ProgressBar } from "component/ProgressBar/ProgressBar";
 import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
-import { AnswerExplanation } from "component/AnswerExplanation/AnswerExplanation";
+import { QuestionResult } from "component/QuestionResult/QuestionResult";
 
 interface QuizViewProps {
   quiz: Quiz;
@@ -43,7 +43,7 @@ export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           <MultiChoiceQComp question={quiz.questions[currentIndex]} />
         </>
       ) : (
-        <AnswerExplanation
+        <QuestionResult
           explanation={quiz.questions[currentIndex - 1].explanation}
           correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
         />
