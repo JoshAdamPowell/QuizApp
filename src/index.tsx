@@ -3,14 +3,13 @@ import React from "react";
 import { Quiz } from "model/Quiz";
 import { getTestQuiz } from "data/getQuiz";
 import { QuizView } from "view/QuizView";
-import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
 
 const App = () => {
   const quiz = getTestQuiz();
   return (
     <section>
       <h1>This is my React app!</h1>
-      <MultiChoiceQComp question={quiz.questions[0]} />
+      <QuizView quiz={quiz} />
     </section>
   );
 };
