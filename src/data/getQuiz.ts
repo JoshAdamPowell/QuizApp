@@ -95,6 +95,7 @@ export function getTestQuiz(): Quiz {
             correct: false,
           },
         ],
+        explanation: "It was Tyson and Ali",
       },
     ],
   };
