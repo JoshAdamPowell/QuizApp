@@ -18,11 +18,14 @@ export const QuestionResultCard = styled.div`
   border: 2px solid
     ${({ correct }: ResultProps) => (correct ? darkGreen : darkRed)};
   color: ${white};
-  padding: 16px;
   border-radius: 10px;
-  height: 100%;
-  width: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  padding: 16px;
+  height: 120px;
 `;
 
 export const ResultTextWrapper = styled.div`
