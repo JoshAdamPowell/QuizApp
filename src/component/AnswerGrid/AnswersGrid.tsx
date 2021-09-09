@@ -1,6 +1,6 @@
 import React from "react";
 import { Answer } from "model/Answer";
-import { AnswerComp } from "component/AnswerComp/AnswerComp";
+import { AnswerComp } from "component/AnswerButton/AnswerButton";
 import { AnswersContainer } from "./styled";
 
 interface AnswersCompProps {

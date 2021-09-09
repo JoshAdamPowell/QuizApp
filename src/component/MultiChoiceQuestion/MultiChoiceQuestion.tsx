@@ -1,6 +1,6 @@
 import React from "react";
 import { Question } from "model/Question";
-import { AnswersComp } from "component/AnswersComp/AnswersComp";
+import { AnswersComp } from "component/AnswerGrid/AnswersGrid";
 import {
   MultiChoiceQContainer,
   QuestionAndImageContainer,
