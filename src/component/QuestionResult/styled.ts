@@ -29,12 +29,10 @@ export const QuestionResultContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-// border: 2px solid
-//   ${({ correct }: ResultProps) => (correct ? darkGreen : darkRed)};
-
 export const QuestionResultCard = styled.div`
   background: ${({ correct }: ResultProps) => (correct ? midGreen : midRed)};
-
+  border: 2px solid
+    ${({ correct }: ResultProps) => (correct ? darkGreen : darkRed)};
   color: ${white};
   border-radius: 10px;
   border: 2px red;
@@ -47,7 +45,7 @@ export const QuestionResultCard = styled.div`
   height: 120px;
   transform: scale(1);
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-  animation: ${pulseAnimation} 2s 1;
+  animation: ${pulseAnimation} 1.5s 1;
   animation-fill=mode: forwards;
 `;
 
