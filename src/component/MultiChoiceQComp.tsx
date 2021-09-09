@@ -2,6 +2,7 @@ import React from "react";
 import { Question } from "model/Question";
 import { AnswersComp } from "component/AnswersComp";
 import styled from "styled-components";
+import "css/fonts.css";
 
 interface MultiChoiceQProps {
   question: Question;
@@ -19,6 +20,7 @@ const StyledQuestionImg = styled.img`
 
 const QuestionContainer = styled.div`
   text-align: center;
+  font-family: "Roboto", sans-serif;
 `;
 
 export const MultiChoiceQComp = ({

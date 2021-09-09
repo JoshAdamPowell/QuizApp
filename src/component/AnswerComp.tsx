@@ -1,6 +1,7 @@
 import React from "react";
 import { Answer } from "model/Answer";
 import styled from "styled-components";
+import "css/fonts.css";
 
 interface AnswerContentProps {
   answer: Answer;
@@ -16,6 +17,10 @@ const AnswerContentItem = styled.div`
   width: 50%;
 `;
 
+const AnswerTextWrapper = styled.div`
+  font-family: "Open Sans", sans-serif;
+`;
+
 const StyledImg = styled.img`
   max-width: 100px;
   max-height: 100px;
@@ -24,7 +29,9 @@ const StyledImg = styled.img`
 const AnswerContent = ({ answer }: AnswerContentProps) => {
   return answer.text && answer.image ? (
     <AnswerContentContainer>
-      <AnswerContentItem>{answer.text}</AnswerContentItem>
+      <AnswerContentItem>
+        <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
+      </AnswerContentItem>
       <AnswerContentItem>
         <StyledImg src={answer.image} />
       </AnswerContentItem>
@@ -32,7 +39,7 @@ const AnswerContent = ({ answer }: AnswerContentProps) => {
   ) : (
     <div>
       {answer.text ? (
-        <div>{answer.text}</div>
+        <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
       ) : (
         <StyledImg src={answer.image} />
       )}
