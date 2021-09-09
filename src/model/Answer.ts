@@ -1,5 +1,5 @@
 export interface Answer {
-  text: string;
+  text?: string;
   image?: string;
   correct: boolean;
 }
