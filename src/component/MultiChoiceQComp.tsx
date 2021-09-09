@@ -21,6 +21,7 @@ const StyledQuestionImg = styled.img`
 const QuestionContainer = styled.div`
   text-align: center;
   font-family: "Roboto", sans-serif;
+  font-size: 150%;
 `;
 
 export const MultiChoiceQComp = ({
