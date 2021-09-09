@@ -1,7 +1,5 @@
 import React from "react";
 import { Answer } from "model/Answer";
-import styled from "styled-components";
-import "css/fonts.css";
 import {
   AnswerButton,
   AnswerContentContainer,

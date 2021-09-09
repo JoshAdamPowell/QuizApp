@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "css/fonts.css";
+import "fonts/fonts.css";
 import { darkBlue, midBlue, white } from "colours/colours";
 
 export const AnswerContentContainer = styled.div`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "css/fonts.css";
+import "fonts/fonts.css";
 
 export const MultiChoiceQContainer = styled.div`
   display: flex;
