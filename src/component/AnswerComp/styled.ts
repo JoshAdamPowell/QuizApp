@@ -31,6 +31,7 @@ export const AnswerButton = styled.button`
   border-radius: 10px;
   height: 100%;
   width: 100%;
+  cursor: pointer;
 
   &:hover {
     background: ${darkBlue};

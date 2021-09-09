@@ -9,8 +9,8 @@ interface AnswersCompProps {
 
 export const AnswersComp = ({ answers }: AnswersCompProps) => (
   <AnswersContainer>
-    {answers.map((answer) => (
-      <AnswerComp answer={answer} />
+    {answers.map((answer, key) => (
+      <AnswerComp answer={answer} key={key} />
     ))}
   </AnswersContainer>
 );
