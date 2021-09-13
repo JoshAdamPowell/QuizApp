@@ -12,8 +12,8 @@ interface AnswerContentProps {
   answer: Answer;
 }
 
-const AnswerContent = ({ answer }: AnswerContentProps) => {
-  return answer.text && answer.image ? (
+const AnswerContent = ({ answer }: AnswerContentProps) =>
+  answer.text && answer.image ? (
     <AnswerContentContainer>
       <AnswerContentItem>
         <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
@@ -31,7 +31,6 @@ const AnswerContent = ({ answer }: AnswerContentProps) => {
       )}
     </AnswerContentContainer>
   );
-};
 
 interface AnswerCompProps {
   answer: Answer;
