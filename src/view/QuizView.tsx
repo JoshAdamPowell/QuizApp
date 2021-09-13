@@ -74,6 +74,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <QuizContainer>
       <QuizDataContext.Provider
         value={{
@@ -117,6 +118,8 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
       </QuizDataContext.Provider>
     </QuizContainer>
 =======
+=======
+>>>>>>> da0bdb6 (added score functionality)
     <>
       {/* <ProgressBar questionStates={questionStates} />
       {currentIndex < quizLength ? (
@@ -134,7 +137,25 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
       )} */}
       <EndPage score={5} />
     </>
+<<<<<<< HEAD
 >>>>>>> daef062 (basic layout of finish page and alternating colours on congratulations)
+=======
+=======
+    // <>
+    //   <ProgressBar questionStates={questionStates} />
+    //   {currentIndex < quizLength ? (
+    //     <>
+    //       <MultiChoiceQComp question={quiz.questions[currentIndex]} />
+    //       <button onClick={() => updateResult(Math.random() < 0.5)}>
+    //         Next Question
+    //       </button>
+    //     </>
+    //   ) : (
+    <EndPage questionStates={questionStates} />
+    //  )}
+    // </>
+>>>>>>> e5ea511 (added score functionality)
+>>>>>>> da0bdb6 (added score functionality)
   );
 };
 

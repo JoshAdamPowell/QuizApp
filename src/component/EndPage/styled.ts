@@ -11,8 +11,8 @@ import {
 
 export const EndPageContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
+  justify-content: space-evenly;
   height: 500px;
   text-align: center;
 `;
@@ -27,7 +27,10 @@ const getTextColour = (index: number) => {
 };
 
 export const FinishingTextCharacter = styled.span`
-  font-family: "Riangriung";
-  font-size: 150%;
   color: ${({ index }: IndexProps) => getTextColour(index)};
+`;
+
+export const FinishingText = styled.div`
+  font-family: "Riangriung";
+  font-size: 135%;
 `;
