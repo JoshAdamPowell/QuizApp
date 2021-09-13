@@ -61,4 +61,23 @@ export const AnswerComp = ({
       )}
     </AnswerButton>
   );
+<<<<<<< HEAD
 };
+=======
+
+interface AnswerCompProps {
+  answer: Answer;
+  index: number;
+}
+
+export const AnswerComp = ({ answer, index }: AnswerCompProps): React.ReactElement => (
+  <AnswerButton
+    selected={false}
+    correct={answer.correct}
+    revealed={false}
+    index={index}
+  >
+    <AnswerContent answer={answer} />
+  </AnswerButton>
+);
+>>>>>>> Shuffle answers and order of appearance
