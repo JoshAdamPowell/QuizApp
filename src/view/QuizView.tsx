@@ -19,15 +19,33 @@ const Container = styled.div`
   width: 100%;
 `;
 
-export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
+type AnswerSelections = boolean[];
+
+interface QuizData {
+  selectedQuestions?: AnswerSelections;
+  setSelectedQuestions?: React.Dispatch<React.SetStateAction<AnswerSelections>>;
+}
+
+export const QuizDataContext = React.createContext<QuizData>({
+  selectedQuestions: [],
+  setSelectedQuestions: null,
+});
+
+const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   const quizLength = quiz.questions.length;
-  const initialQuestionStates = new Array(quizLength).fill(
+  const initialQuestionStates = Array(quizLength).fill(
     QuestionState.UNANSWERED
   );
+
+  const [selectedAnswers, setSelectedAnswers] = useState<AnswerSelections>(
+    Array(quizLength)
+  );
+
   const [questionStates, setQuestionStates] = useState<QuestionState[]>(
     initialQuestionStates
   );
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
 
   const updateResult = (correct: boolean): void => {
     if (currentIndex >= quizLength) {
@@ -42,23 +60,37 @@ export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
     setCurrentIndex(currentIndex + 1);
   };
 
+  console.log(selectedAnswers);
+
   return (
     <Container>
-      <ProgressBar questionStates={questionStates} />
-      {currentIndex < quizLength ? (
-        <>
-          <button onClick={() => updateResult(Math.random() < 0.5)}>
-            Next Question
-          </button>
-          <MultiChoiceQComp question={quiz.questions[currentIndex]} />
-        </>
-      ) : (
-        <QuestionResult
-          explanation={quiz.questions[currentIndex - 1].explanation}
-          correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
+      <QuizDataContext.Provider
+        value={{
+          selectedQuestions: selectedAnswers,
+          setSelectedQuestions: setSelectedAnswers,
+        }}
+      >
+        <ProgressBar questionStates={questionStates} />
+        {currentIndex < quizLength ? (
+          <>
+            <button onClick={() => updateResult(Math.random() < 0.5)}>
+              Next Question
+            </button>
+            <MultiChoiceQComp question={quiz.questions[currentIndex]} />
+          </>
+        ) : (
+          <QuestionResult
+            explanation={quiz.questions[currentIndex - 1].explanation}
+            correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
+          />
+        )}
+        <SubmitButton
+          disabled={!selectedAnswers.some((x) => x)}
+          isContinue={false /* TODO: Make functional*/}
         />
-      )}
-      <SubmitButton isContinue={false /* TODO: Make functional*/} />
+      </QuizDataContext.Provider>
     </Container>
   );
 };
+
+export default QuizView;

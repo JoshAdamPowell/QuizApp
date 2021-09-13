@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Quiz } from "model/Quiz";
 import { getTestQuiz } from "data/getQuiz";
 import { StartScreen } from "component/StartScreen/StartScreen";
-import { QuizView } from "view/QuizView";
+import QuizView from "view/QuizView";
 
 const App = (): React.ReactElement => {
   const quiz = getTestQuiz();
