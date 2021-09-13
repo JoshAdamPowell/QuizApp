@@ -3,7 +3,7 @@ import { QuizTitle, StartButton, StartScreenContainer } from "./styled";
 
 interface StartScreenProps {
   quizName: string;
-  onStartClick?: () => void;
+  onStartClick?: React.MouseEventHandler;
 }
 
 export const StartScreen = ({

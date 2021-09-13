@@ -1,6 +1,8 @@
+import ChildSwitcherContainer from "component/ChildSwitcherContainer";
 import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
 import { ProgressBar } from "component/ProgressBar/ProgressBar";
 import { QuestionResult } from "component/QuestionResult/QuestionResult";
+import { StartScreen } from "component/StartScreen/StartScreen";
 import { SubmitButton } from "component/SubmitButton";
 import { QuestionState } from "model/QuestionState";
 import { Quiz } from "model/Quiz";
@@ -58,13 +60,22 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
     setQuestionStates(newQuestionStates);
   }, [selectedAnswers, currentIndex]);
 
+  const [showSummary, setShowSummary] = useState(false);
+
   const nextQuestion = React.useCallback(() => {
-    const nextIndex = currentIndex + 1;
+    const nextIndex = currentIndex + 1 >= quizLength ? 0 : currentIndex + 1;
     setCurrentIndex(nextIndex);
     setSelectedAnswers(
       Array(quiz.questions[nextIndex].answers.length).fill(false)
     );
+    setShowSummary(false);
+    if (nextIndex === 0) {
+      setCurrentScreen(2);
+      setQuestionStates(questionStates.fill(QuestionState.UNANSWERED));
+    }
   }, [currentIndex]);
+
+  const [currentScreen, setCurrentScreen] = useState(0);
 
   return (
     <Container>
@@ -75,24 +86,34 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           questionState: questionStates[currentIndex],
         }}
       >
-        <ProgressBar questionStates={questionStates} />
-        {currentIndex < quizLength ? (
-          <MultiChoiceQComp question={quiz.questions[currentIndex]} />
-        ) : (
-          <QuestionResult
-            explanation={quiz.questions[currentIndex - 1].explanation}
-            correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
+        <ChildSwitcherContainer index={currentScreen}>
+          <StartScreen
+            quizName={quiz.title}
+            onStartClick={() => setCurrentScreen(1)}
           />
-        )}
-        <SubmitButton
-          disabled={!selectedAnswers.some((x) => x)}
-          isContinue={
-            questionStates[currentIndex] !==
-            QuestionState.UNANSWERED /* TODO: Make functional*/
-          }
-          onSubmit={checkAnswer}
-          onContinue={nextQuestion}
-        />
+          <>
+            <ProgressBar questionStates={questionStates} />
+            <MultiChoiceQComp
+              showSummary={showSummary}
+              question={quiz.questions[currentIndex]}
+            />
+            <SubmitButton
+              disabled={!selectedAnswers.some((x) => x)}
+              isContinue={
+                questionStates[currentIndex] !==
+                QuestionState.UNANSWERED /* TODO: Make functional*/
+              }
+              onSubmit={checkAnswer}
+              onContinue={
+                showSummary ? nextQuestion : () => setShowSummary(true)
+              }
+            />
+          </>
+          <StartScreen
+            quizName={"Quiz is over, go home losers"}
+            onStartClick={() => setCurrentScreen(0)}
+          />
+        </ChildSwitcherContainer>
       </QuizDataContext.Provider>
     </Container>
   );
