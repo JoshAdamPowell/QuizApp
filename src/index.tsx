@@ -1,18 +1,23 @@
 import ReactDOM from "react-dom";
-import React from "react";
+import React, { useState } from "react";
 import { Quiz } from "model/Quiz";
 import { getTestQuiz } from "data/getQuiz";
 import { StartScreen } from "component/StartScreen/StartScreen";
+import { QuizView } from "view/QuizView";
 
 const App = () => {
   const quiz = getTestQuiz();
+  const [started, setStarted] = useState(false);
   return (
     <section>
-      <h1>This is my React app!</h1>
-      <StartScreen
-        quizName={quiz.title}
-        onStartClick={() => console.log("starting")}
-      />
+      {started == false ? (
+        <StartScreen
+          quizName={quiz.title}
+          onStartClick={() => setStarted(true)}
+        />
+      ) : (
+        <QuizView quiz={quiz} />
+      )}
     </section>
   );
 };
