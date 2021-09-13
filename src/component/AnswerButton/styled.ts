@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import "fonts/fonts.css";
 import {
   darkBlue,
@@ -11,6 +11,7 @@ import {
   midRed,
   white,
 } from "colours/colours";
+import { fadeInPulse } from "shared/animations";
 
 export const AnswerContentContainer = styled.div`
   display: flex;
@@ -61,6 +62,9 @@ const getBorderColor = ({
   }
 };
 
+const delay = 0.4;
+const duration = 0.6;
+
 export interface AnswerButtonProps {
   correct: boolean;
   selected?: boolean;
@@ -73,8 +77,16 @@ export const AnswerButton = styled.button`
   color: ${white};
   padding: 16px;
   border-radius: 10px;
+  align-self: center;
+  justify-self: center;
+  padding: 10px;
   height: 100%;
   width: 100%;
+  opacity: 0;
+  transform: scale(1);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  animation: ${fadeInPulse} ${duration}s ${(props: AnswerButtonProps) =>
+  delay * props.index}s ease-in forwards;
 
   ${(props: AnswerButtonProps) =>
     props.revealed
