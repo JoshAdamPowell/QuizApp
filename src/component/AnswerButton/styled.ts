@@ -34,6 +34,7 @@ export const StyledImg = styled.img`
 `;
 
 const getFillColor = ({ selected, correct, revealed }: AnswerButtonProps) => {
+  var a = "a";
   if (revealed) {
     return correct ? midGreen : midRed;
   } else {
