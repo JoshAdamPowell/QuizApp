@@ -24,7 +24,7 @@ export const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
       alert("Quiz complete");
       return;
     }
-    let newQuestionStates = [...questionStates];
+    const newQuestionStates = [...questionStates];
     newQuestionStates[currentIndex] = correct
       ? QuestionState.CORRECT
       : QuestionState.WRONG;
