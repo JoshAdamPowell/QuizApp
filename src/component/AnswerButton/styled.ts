@@ -33,7 +33,11 @@ export const StyledImg = styled.img`
   max-height: 100px;
 `;
 
-const getFillColor = ({ selected, correct, revealed }: AnswerButtonProps) => {
+const getFillColor = ({
+  selected,
+  correct,
+  revealed,
+}: AnswerButtonProps): string => {
   if (revealed) {
     return correct ? midGreen : midRed;
   } else {
@@ -41,7 +45,11 @@ const getFillColor = ({ selected, correct, revealed }: AnswerButtonProps) => {
   }
 };
 
-const getBorderColor = ({ selected, correct, revealed }: AnswerButtonProps) => {
+const getBorderColor = ({
+  selected,
+  correct,
+  revealed,
+}: AnswerButtonProps): string => {
   if (selected) {
     return darkPurple;
   } else {

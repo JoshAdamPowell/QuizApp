@@ -5,7 +5,7 @@ import { getTestQuiz } from "data/getQuiz";
 import { StartScreen } from "component/StartScreen/StartScreen";
 import { QuizView } from "view/QuizView";
 
-const App = () => {
+const App = (): React.ReactElement => {
   const quiz = getTestQuiz();
   const [started, setStarted] = useState(false);
   return (
