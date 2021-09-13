@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import "fonts/fonts.css";
 import {
+  darkNavy,
   midBlue,
   midGreen,
   midNavy,
   midOrange,
   midPurple,
   midRed,
+  white,
 } from "colours/colours";
 
 export const EndPageContainer = styled.div`
@@ -15,6 +17,7 @@ export const EndPageContainer = styled.div`
   justify-content: space-evenly;
   height: 500px;
   text-align: center;
+  align-items: center;
 `;
 
 interface IndexProps {
@@ -32,5 +35,22 @@ export const FinishingTextCharacter = styled.span`
 
 export const FinishingText = styled.div`
   font-family: "Riangriung";
-  font-size: 135%;
+  font-size: 550%;
+`;
+
+export const TryAgainButton = styled.div`
+    background: ${midNavy};
+    border 2px solid ${darkNavy};
+    color: ${white};
+    padding: 16px;
+    border-radius: 10px;
+    width: 100px;
+    cursor: pointer;
+
+    font-family: Roboto;
+    font-size: 120%;
+
+    &:hover {
+        background: ${darkNavy};
+    }
 `;

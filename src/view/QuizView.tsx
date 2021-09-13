@@ -75,6 +75,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <QuizContainer>
       <QuizDataContext.Provider
         value={{
@@ -120,8 +121,10 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
 =======
 =======
 >>>>>>> da0bdb6 (added score functionality)
+=======
+>>>>>>> 7409b1c (added button for try again)
     <>
-      {/* <ProgressBar questionStates={questionStates} />
+      {<ProgressBar questionStates={questionStates} />}
       {currentIndex < quizLength ? (
         <>
           <button onClick={() => updateResult(Math.random() < 0.5)}>
@@ -134,9 +137,10 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           explanation={quiz.questions[currentIndex - 1].explanation}
           correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
         />
-      )} */}
-      <EndPage score={5} />
+      )}
+      {/* <EndPage questionStates={questionStates} /> */}
     </>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> daef062 (basic layout of finish page and alternating colours on congratulations)
 =======
@@ -156,6 +160,8 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
     // </>
 >>>>>>> e5ea511 (added score functionality)
 >>>>>>> da0bdb6 (added score functionality)
+=======
+>>>>>>> 7409b1c (added button for try again)
   );
 };
 

@@ -14,7 +14,18 @@ const App = (): React.ReactElement => {
   quiz.questions = shuffle(quiz.questions); // shuffled order of questions
   return (
     <section>
+<<<<<<< HEAD
       <QuizView quiz={quiz} />
+=======
+      {/* {started == false ? (
+        <StartScreen
+          quizName={quiz.title}
+          onStartClick={() => setStarted(true)}
+        />
+      ) : ( */}
+      <QuizView quiz={quiz} />
+      {/* )} */}
+>>>>>>> 7409b1c (added button for try again)
     </section>
   );
 };
