@@ -11,16 +11,17 @@ interface QuestionResultProps {
   correct: boolean;
 }
 
-export const QuestionResult = (
-  props: QuestionResultProps
-): React.ReactElement => {
+export const QuestionResult = ({
+  explanation,
+  correct,
+}: QuestionResultProps): React.ReactElement => {
   return (
     <QuestionResultContainer>
-      <QuestionResultCard correct={props.correct}>
+      <QuestionResultCard correct={correct}>
         <ResultTextWrapper>
-          {props.correct ? "Well done!" : "Not quite :("}
+          {correct ? "Well done!" : "Not quite :("}
         </ResultTextWrapper>
-        <ExplanationTextWrapper>{props.explanation}</ExplanationTextWrapper>
+        <ExplanationTextWrapper>{explanation}</ExplanationTextWrapper>
       </QuestionResultCard>
     </QuestionResultContainer>
   );
