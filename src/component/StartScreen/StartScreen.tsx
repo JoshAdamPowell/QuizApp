@@ -3,12 +3,12 @@ import { QuizTitle, StartButton, StartScreenContainer } from "./styled";
 
 interface StartScreenProps {
   quizName: string;
-  onStart?: () => void;
+  onStartClick?: () => void;
 }
 
-export const StartScreen = ({ quizName, onStart }: StartScreenProps) => (
+export const StartScreen = ({ quizName, onStartClick }: StartScreenProps) => (
   <StartScreenContainer>
     <QuizTitle>{quizName}</QuizTitle>
-    <StartButton onClick={onStart}>Start!</StartButton>
+    <StartButton onClick={onStartClick}>Start!</StartButton>
   </StartScreenContainer>
 );
