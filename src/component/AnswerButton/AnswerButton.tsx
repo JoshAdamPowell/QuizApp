@@ -8,7 +8,7 @@ import {
   AnswerContentContainer,
   AnswerContentItem,
   AnswerTextWrapper,
-  StyledImg,
+  StyledImg
 } from "./styled";
 import { QuestionState } from "model/QuestionState";
 
@@ -70,7 +70,10 @@ interface AnswerCompProps {
   index: number;
 }
 
-export const AnswerComp = ({ answer, index }: AnswerCompProps): React.ReactElement => (
+export const AnswerComp = ({
+  answer,
+  index
+}: AnswerCompProps): React.ReactElement => (
   <AnswerButton
     selected={false}
     correct={answer.correct}

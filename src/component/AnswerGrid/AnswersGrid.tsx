@@ -2,19 +2,11 @@ import React from "react";
 import { Answer } from "model/Answer";
 import { AnswerComp } from "component/AnswerButton/AnswerButton";
 import { AnswersContainer } from "./styled";
+import { shuffle } from "shared/utils";
 
 interface AnswersCompProps {
   answers: Answer[];
 }
-
-const shuffle = <T extends unknown>(arr: T[]): T[] => {
-  const randomNumbers = Array.from({ length: arr.length }, () => Math.random());
-  const randomIndices = randomNumbers
-    .map((v, i) => [v, i])
-    .sort()
-    .map((a) => a[1]);
-  return randomIndices.map((v) => arr[v]);
-};
 
 export const AnswersComp = ({
   answers,
