@@ -14,15 +14,13 @@ interface QuestionResultProps {
 export const QuestionResult = ({
   explanation,
   correct,
-}: QuestionResultProps): React.ReactElement => {
-  return (
-    <QuestionResultContainer>
-      <QuestionResultCard correct={correct}>
-        <ResultTextWrapper>
-          {correct ? "Well done!" : "Not quite :("}
-        </ResultTextWrapper>
-        <ExplanationTextWrapper>{explanation}</ExplanationTextWrapper>
-      </QuestionResultCard>
-    </QuestionResultContainer>
-  );
-};
+}: QuestionResultProps): React.ReactElement => (
+  <QuestionResultContainer>
+    <QuestionResultCard correct={correct}>
+      <ResultTextWrapper>
+        {correct ? "Well done!" : "Not quite :("}
+      </ResultTextWrapper>
+      <ExplanationTextWrapper>{explanation}</ExplanationTextWrapper>
+    </QuestionResultCard>
+  </QuestionResultContainer>
+);

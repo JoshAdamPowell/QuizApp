@@ -7,7 +7,9 @@ interface AnswersCompProps {
   answers: Answer[];
 }
 
-export const AnswersComp = ({ answers }: AnswersCompProps) => (
+export const AnswersComp = ({
+  answers,
+}: AnswersCompProps): React.ReactElement => (
   <AnswersContainer>
     {answers.map((answer, key) => (
       <AnswerComp answer={answer} key={key} />

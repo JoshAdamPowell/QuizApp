@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { Keyframes, keyframes } from "styled-components";
 import { midGreen, darkGreen, midRed, darkRed, white } from "colours/colours";
 import "fonts/fonts.css";
 
@@ -6,7 +6,7 @@ interface ResultProps {
   correct: boolean;
 }
 
-export const pulseAnimation = () => keyframes`
+export const pulseAnimation = (): Keyframes => keyframes`
 	0% {
 		transform: scale(1);
 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);

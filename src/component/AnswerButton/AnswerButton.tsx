@@ -12,7 +12,7 @@ interface AnswerContentProps {
   answer: Answer;
 }
 
-const AnswerContent = ({ answer }: AnswerContentProps) =>
+const AnswerContent = ({ answer }: AnswerContentProps): React.ReactElement =>
   answer.text && answer.image ? (
     <AnswerContentContainer>
       <AnswerContentItem>
