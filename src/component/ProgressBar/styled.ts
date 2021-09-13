@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { Keyframes, keyframes } from "styled-components";
 import { QuestionState } from "model/QuestionState";
 import {
   midGrey,
@@ -13,7 +13,7 @@ interface ProgressDotProps {
   state: QuestionState;
 }
 
-const getBorderColor = (state: QuestionState) => {
+const getBorderColor = (state: QuestionState): string => {
   switch (state) {
     case QuestionState.UNANSWERED:
       return darkGrey;
@@ -24,7 +24,7 @@ const getBorderColor = (state: QuestionState) => {
   }
 };
 
-const getFillColor = (state: QuestionState) => {
+const getFillColor = (state: QuestionState): string => {
   switch (state) {
     case QuestionState.UNANSWERED:
       return midGrey;
@@ -35,7 +35,7 @@ const getFillColor = (state: QuestionState) => {
   }
 };
 
-const progressDotAnim = (state: QuestionState) => keyframes`
+const progressDotAnim = (state: QuestionState): Keyframes => keyframes`
   100%{ background-color: ${getFillColor(state)};
       border-color:  ${getBorderColor(state)};
   }`;
