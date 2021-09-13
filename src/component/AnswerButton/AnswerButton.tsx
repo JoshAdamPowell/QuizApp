@@ -37,7 +37,7 @@ interface AnswerCompProps {
 }
 
 export const AnswerComp = ({ answer }: AnswerCompProps) => (
-  <AnswerButton>
+  <AnswerButton selected={false} correct={answer.correct} revealed={true}>
     <AnswerContent answer={answer} />
   </AnswerButton>
 );
