@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { Answer } from "model/Answer";
 import { QuizDataContext } from "view/QuizView";
 import styled from "styled-components";
-import "css/fonts.css";
+import "fonts/fonts.css";
 import {
   AnswerButton,
   AnswerContentContainer,
@@ -10,24 +10,37 @@ import {
   AnswerTextWrapper,
   StyledImg,
 } from "./styled";
+import { QuestionState } from "model/QuestionState";
 
 interface AnswerCompProps {
   answer: Answer;
   index: number;
 }
 
-export const AnswerComp = ({ answer, index }: AnswerCompProps) => {
-  const { selectedQuestions, setSelectedQuestions } =
+export const AnswerComp = ({
+  answer,
+  index,
+}: AnswerCompProps): React.ReactElement => {
+  const { selectedAnswers, setSelectedAnswers, questionState } =
     useContext(QuizDataContext);
 
   const onClick = useCallback(() => {
-    const questions = [...selectedQuestions];
-    questions[index] = !questions[index];
-    setSelectedQuestions(questions);
-  }, [selectedQuestions]);
+    const selections = [...selectedAnswers];
+    selections[index] = !selections[index];
+    setSelectedAnswers(selections);
+  }, [selectedAnswers]);
+
+  const revealed =
+    (selectedAnswers[index] || answer.correct) &&
+    questionState !== QuestionState.UNANSWERED;
 
   return (
-    <AnswerButton onClick={onClick}>
+    <AnswerButton
+      revealed={revealed}
+      correct={answer.correct}
+      selected={selectedAnswers[index]}
+      onClick={onClick}
+    >
       {answer.text && answer.image ? (
         <AnswerContentContainer>
           <AnswerContentItem>

@@ -41,13 +41,20 @@ const StyledButton = styled.button`
 interface SubmitButtonProps {
   isContinue: boolean;
   disabled: boolean;
+  onSubmit: React.MouseEventHandler;
+  onContinue: React.MouseEventHandler;
 }
 
 export const SubmitButton = ({
   isContinue,
   disabled,
+  onSubmit,
+  onContinue,
 }: SubmitButtonProps): React.ReactElement => (
-  <StyledButton disabled={disabled}>
+  <StyledButton
+    disabled={disabled}
+    onClick={isContinue ? onContinue : onSubmit}
+  >
     {isContinue ? "Continue" : "Submit"}
   </StyledButton>
 );

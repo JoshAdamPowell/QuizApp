@@ -62,9 +62,9 @@ const getBorderColor = ({
 };
 
 export interface AnswerButtonProps {
-  selected: boolean;
-  correct: boolean;
-  revealed: boolean;
+  selected?: boolean;
+  correct?: boolean;
+  revealed?: boolean;
 }
 
 export const AnswerButton = styled.button`
