@@ -62,7 +62,6 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
     setShowSummary(false);
     if (nextIndex === 0) {
       setCurrentScreen(2);
-      setQuestionStates(questionStates.fill(QuestionState.UNANSWERED));
     }
   }, [currentIndex]);
 
@@ -102,7 +101,10 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           </>
           <StartScreen
             quizName={"Quiz is over, go home losers"}
-            onStartClick={() => setCurrentScreen(0)}
+            onStartClick={() => {
+              setCurrentScreen(0);
+              setQuestionStates(questionStates.fill(QuestionState.UNANSWERED));
+            }}
           />
         </ChildSwitcherContainer>
       </QuizDataContext.Provider>
