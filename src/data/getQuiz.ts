@@ -81,18 +81,45 @@ export function getTestQuiz(): Quiz {
           {
             text: "Mike Tyson",
             correct: true,
+            image:
+              "https://s.abcnews.com/images/Sports/mike-tyson-show-gty-jt-200723_1595524132347_hpEmbed_3x2_992.jpg",
           },
           {
-            text: "Muhammad Ali",
+            text: "Muhammad Ali, formerly known as Cassius Marcellus Clay Jr.",
             correct: true,
+            image:
+              "https://upload.wikimedia.org/wikipedia/commons/8/89/Muhammad_Ali_NYWTS.jpg",
           },
           {
-            text: "Tiger Woods",
+            text: "Tiger Woods and a very long woooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooord",
             correct: false,
+            image:
+              "https://cdn.cnn.com/cnnnext/dam/assets/210223150836-06-tiger-woods-lead-image.jpg",
           },
           {
             text: "Thierry Henry",
             correct: false,
+            image: "https://404.com/this-will-not-be-found.jpg",
+          },
+        ],
+        explanation: "It was Tyson and Ali",
+      },
+      {
+        text: "In the 2000 dark comedy film, American Psycho, which of the VP's at Pierce & Pierce has the best business card (excluding Bateman of course)",
+        questionType: QuestionType.single,
+        image: "http://i.imgur.com/nVU8Z7R.jpg",
+        answers: [
+          {
+            text: "David Van Patten",
+            correct: false,
+          },
+          {
+            text: "Timothy Bryce",
+            correct: false,
+          },
+          {
+            text: "Paul Allen",
+            correct: true,
           },
         ],
         explanation: "It was Tyson and Ali",
