@@ -4,7 +4,6 @@ import {
   darkBlue,
   darkGreen,
   darkPurple,
-  darkRed,
   midBlue,
   midGreen,
   midPurple,
