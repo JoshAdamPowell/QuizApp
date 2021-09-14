@@ -29,7 +29,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   );
 
   const [selectedAnswers, setSelectedAnswers] = useState<AnswerSelections>(
-    Array(quizLength).fill(false)
+    Array(quiz.questions[0] && quiz.questions[0].answers.length).fill(false)
   );
 
   const [questionStates, setQuestionStates] = useState<QuestionState[]>(
