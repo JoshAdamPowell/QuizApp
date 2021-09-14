@@ -126,7 +126,8 @@ export function getTestQuiz(): Quiz {
             correct: false,
           },
         ],
-        explanation: "It was Tyson and Ali",
+        explanation:
+          "Obviously, it is Paul Allen's. Look at that subtle off-white colouring. The tasteful thickness of it. My God, It even has a watermark...",
       },
       {
         text: "What actor said this: 'My name is Maximus Decimus Meridius, commander of the Armies of the North, General of the Felix Legions and loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son. Husband to a murdered wife. And I will have my vengeance, in this life or the next.' and also this 'Who is this man? What sort of devil is he To have me caught in a trap And choose to let me go free? It was his hour at last To put a seal on my fate Wipe out the past And watch me clean off the slate All it would take Was a flick of his knife. Vengeance was his And he gave me back my life!'",

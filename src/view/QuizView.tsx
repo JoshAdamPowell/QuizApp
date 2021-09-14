@@ -7,6 +7,8 @@ import { QuestionState } from "model/QuestionState";
 import { Quiz } from "model/Quiz";
 import React, { useState } from "react";
 import { QuizContainer } from "./styled";
+import { QuestionResult } from "component/QuestionResult/QuestionResult";
+import { EndPage } from "component/EndPage/EndPage";
 
 interface QuizViewProps {
   quiz: Quiz;
@@ -100,9 +102,10 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
               }
             />
           </>
-          <StartScreen
-            quizName={"Quiz is over, go home losers"}
-            onStartClick={() => {
+
+          <EndPage
+            questionStates={questionStates}
+            onRestartClick={() => {
               setCurrentScreen(0);
               setQuestionStates(questionStates.fill(QuestionState.UNANSWERED));
             }}

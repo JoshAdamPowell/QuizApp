@@ -23,15 +23,13 @@ export const AnswerComp = ({
   const { selectedAnswers, setSelectedAnswers, questionState } =
     useContext(QuizDataContext);
 
-  const onClick = useCallback(() => {
+  const updateSelection = useCallback(() => {
     const selections = [...selectedAnswers];
     selections[index] = !selections[index];
     setSelectedAnswers(selections);
   }, [selectedAnswers]);
 
-  const revealed =
-    (selectedAnswers[index] || answer.correct) &&
-    questionState !== QuestionState.UNANSWERED;
+  const revealed = questionState !== QuestionState.UNANSWERED;
 
   return (
     <AnswerButton
@@ -39,7 +37,7 @@ export const AnswerComp = ({
       revealed={revealed}
       correct={answer.correct}
       selected={selectedAnswers[index]}
-      onClick={onClick}
+      onClick={!revealed && updateSelection}
     >
       {answer.text && answer.image ? (
         <AnswerContentContainer>
