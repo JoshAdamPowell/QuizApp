@@ -54,3 +54,12 @@ export const TryAgainButton = styled.div`
         background: ${darkNavy};
     }
 `;
+
+export const ScoreText = styled.div`
+  font-family: "Luckiest Guy", cursive;
+  font-size: 300%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+`;

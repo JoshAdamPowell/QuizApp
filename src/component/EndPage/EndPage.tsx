@@ -1,10 +1,10 @@
 import React from "react";
-import { getScore, Score } from "component/Score/Score";
 import {
   EndPageContainer,
   FinishingText,
   FinishingTextCharacter,
   TryAgainButton,
+  ScoreText,
 } from "./styled";
 import { QuestionState } from "model/QuestionState";
 
@@ -12,6 +12,25 @@ interface EndPageProps {
   questionStates: QuestionState[];
   onRestartClick?: () => void;
 }
+
+interface QuestionStateProps {
+  questionStates: QuestionState[];
+}
+
+interface ScoreInfoProps {
+  score: number;
+}
+
+const getScore = ({ questionStates }: QuestionStateProps): ScoreInfoProps => {
+  const score = questionStates.filter((q) => q == QuestionState.CORRECT).length;
+  return { score };
+};
+
+const Score = ({ questionStates }: QuestionStateProps): React.ReactElement => (
+  <ScoreText>
+    {getScore({ questionStates }).score}/{questionStates.length}
+  </ScoreText>
+);
 
 export const EndPage = ({
   questionStates,
@@ -26,7 +45,7 @@ export const EndPage = ({
       ))}
     </FinishingText>
 
-    <Score {...getScore({ questionStates })} />
+    <Score {...{ questionStates }} />
     <TryAgainButton onClick={onRestartClick}>Try again!</TryAgainButton>
   </EndPageContainer>
 );

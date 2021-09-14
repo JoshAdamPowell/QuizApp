@@ -10,8 +10,11 @@ import React, { useState } from "react";
 import { QuizContainer } from "./styled";
 =======
 import { QuestionResult } from "component/QuestionResult/QuestionResult";
+<<<<<<< HEAD
 import { EndPage } from "component/EndPage/EndPage";
 >>>>>>> daef062 (basic layout of finish page and alternating colours on congratulations)
+=======
+>>>>>>> 672d1b5 (made changes from review - combining fonts, moving score into endpage)
 
 interface QuizViewProps {
   quiz: Quiz;
@@ -124,7 +127,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
 =======
 >>>>>>> 7409b1c (added button for try again)
     <>
-      {<ProgressBar questionStates={questionStates} />}
+      <ProgressBar questionStates={questionStates} />
       {currentIndex < quizLength ? (
         <>
           <button onClick={() => updateResult(Math.random() < 0.5)}>
