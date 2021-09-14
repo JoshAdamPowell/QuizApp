@@ -20,7 +20,7 @@ export const AnswersComp = ({
       {shuffledAnswers.map((answer, answerIndex) => (
         <AnswerComp
           answer={answer}
-          key={`${questionIndex}-${answerIndex}`}
+          key={`${questionIndex}-${answerIndex}`} // TODO: make reveal state part of key
           index={randomIndices[answerIndex]}
         />
       ))}
