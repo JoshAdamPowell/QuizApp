@@ -3,6 +3,7 @@ import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuest
 import { ProgressBar } from "component/ProgressBar/ProgressBar";
 import { StartScreen } from "component/StartScreen/StartScreen";
 import { SubmitButton } from "component/SubmitButton";
+import { QuestionType } from "model/Question";
 import { QuestionState } from "model/QuestionState";
 import { Quiz } from "model/Quiz";
 import React, { useState } from "react";
@@ -19,6 +20,7 @@ interface QuizData {
   selectedAnswers?: AnswerSelections;
   setSelectedAnswers?: React.Dispatch<React.SetStateAction<AnswerSelections>>;
   questionState?: QuestionState;
+  questionType?: QuestionType;
 }
 
 export const QuizDataContext = React.createContext<QuizData>({});
@@ -40,10 +42,16 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const checkAnswer = React.useCallback(() => {
-    const correct = !selectedAnswers.some(
-      (isSelected, index) =>
-        quiz.questions[currentIndex].answers[index].correct !== isSelected
-    );
+    const correct =
+      quiz.questions[currentIndex].questionType === QuestionType.multiAnd
+        ? selectedAnswers.every(
+            (isSelected, index) =>
+              quiz.questions[currentIndex].answers[index].correct === isSelected
+          )
+        : selectedAnswers.some(
+            (isSelected, index) =>
+              quiz.questions[currentIndex].answers[index].correct && isSelected
+          );
 
     const newQuestionStates = [...questionStates];
     newQuestionStates[currentIndex] = correct
@@ -75,6 +83,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           selectedAnswers: selectedAnswers,
           setSelectedAnswers: setSelectedAnswers,
           questionState: questionStates[currentIndex],
+          questionType: quiz.questions[currentIndex].questionType,
         }}
       >
         <ChildSwitcherContainer index={currentScreen}>
@@ -92,8 +101,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
             <SubmitButton
               disabled={!selectedAnswers.some((x) => x)}
               isContinue={
-                questionStates[currentIndex] !==
-                QuestionState.UNANSWERED /* TODO: Make functional*/
+                questionStates[currentIndex] !== QuestionState.UNANSWERED
               }
               onSubmit={checkAnswer}
               onContinue={

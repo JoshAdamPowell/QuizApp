@@ -10,6 +10,7 @@ import {
   StyledImg,
 } from "./styled";
 import { QuestionState } from "model/QuestionState";
+import { QuestionType } from "model/Question";
 
 interface AnswerCompProps {
   answer: Answer;
@@ -20,11 +21,14 @@ export const AnswerComp = ({
   answer,
   index,
 }: AnswerCompProps): React.ReactElement => {
-  const { selectedAnswers, setSelectedAnswers, questionState } =
+  const { selectedAnswers, setSelectedAnswers, questionState, questionType } =
     useContext(QuizDataContext);
 
   const updateSelection = useCallback(() => {
-    const selections = [...selectedAnswers];
+    const selections =
+      questionType === QuestionType.multiAnd || selectedAnswers[index]
+        ? [...selectedAnswers]
+        : [...selectedAnswers].fill(false);
     selections[index] = !selections[index];
     setSelectedAnswers(selections);
   }, [selectedAnswers]);
