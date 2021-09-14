@@ -14,7 +14,7 @@ export const ProgressBar = ({
       <ProgressDot
         state={state}
         index={index}
-        key={index + "-" + state.valueOf()}
+        key={`${index}-${state.valueOf()}`}
       />
     ))}
   </ProgressContainer>

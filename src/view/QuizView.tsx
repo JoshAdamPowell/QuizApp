@@ -68,6 +68,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   const [currentScreen, setCurrentScreen] = useState(0);
 
   return (
+<<<<<<< HEAD
     <QuizContainer>
       <QuizDataContext.Provider
         value={{
@@ -109,6 +110,27 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
         </ChildSwitcherContainer>
       </QuizDataContext.Provider>
     </QuizContainer>
+=======
+    <>
+      <ProgressBar questionStates={questionStates} />
+      {currentIndex < quizLength ? (
+        <>
+          <button onClick={() => updateResult(Math.random() < 0.5)}>
+            Next Question
+          </button>
+          <MultiChoiceQComp
+            questionIndex={currentIndex}
+            question={quiz.questions[currentIndex]}
+          />
+        </>
+      ) : (
+        <QuestionResult
+          explanation={quiz.questions[currentIndex - 1].explanation}
+          correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
+        />
+      )}
+    </>
+>>>>>>> Rebase and lint
   );
 };
 

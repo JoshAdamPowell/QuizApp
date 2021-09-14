@@ -37,7 +37,7 @@ const getFillColor = (state: QuestionState): string => {
   }
 };
 
-const progressDotAnim = (state: QuestionState) => keyframes`
+const progressDotAnim = (state: QuestionState): Keyframes => keyframes`
   0% {
     background-color: ${getFillColor(QuestionState.UNANSWERED)};
     border-color:  ${getBorderColor(QuestionState.UNANSWERED)};

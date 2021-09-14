@@ -14,28 +14,18 @@ import { QuestionState } from "model/QuestionState";
 interface MultiChoiceQProps {
   question: Question;
   showSummary: boolean;
+  questionIndex: number;
 }
 
 export const MultiChoiceQComp = ({
   question,
-  showSummary,
-}: MultiChoiceQProps): React.ReactElement => {
-  const { questionState } = useContext(QuizDataContext);
-
-  return (
-    <MultiChoiceQContainer>
-      <QuestionAndImageContainer>
-        {question.image && <StyledQuestionImg src={question.image} />}
-        <QuestionContainer>{question.text}</QuestionContainer>
-      </QuestionAndImageContainer>
-      {showSummary ? (
-        <QuestionResult
-          explanation={question.explanation}
-          correct={questionState === QuestionState.CORRECT}
-        />
-      ) : (
-        <AnswersComp answers={question.answers} />
-      )}
-    </MultiChoiceQContainer>
-  );
-};
+  questionIndex,
+}: MultiChoiceQProps): React.ReactElement => (
+  <MultiChoiceQContainer>
+    <QuestionAndImageContainer>
+      {question.image && <StyledQuestionImg src={question.image} />}
+      <QuestionContainer>{question.text}</QuestionContainer>
+    </QuestionAndImageContainer>
+    <AnswersComp questionIndex={questionIndex} answers={question.answers} />
+  </MultiChoiceQContainer>
+);

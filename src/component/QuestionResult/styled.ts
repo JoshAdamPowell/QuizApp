@@ -1,4 +1,4 @@
-import styled, { Keyframes, keyframes } from "styled-components";
+import styled from "styled-components";
 import { midGreen, darkGreen, midRed, darkRed, white } from "colours/colours";
 import { pulse } from "shared/animations";
 import "fonts/fonts.css";
