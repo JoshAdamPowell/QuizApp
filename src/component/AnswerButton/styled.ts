@@ -34,8 +34,8 @@ export const StyledImg = styled.img`
 `;
 
 const getFillColor = ({
-  selected,
   correct,
+  selected,
   revealed,
 }: AnswerButtonProps): string => {
   if (revealed) {
@@ -46,8 +46,8 @@ const getFillColor = ({
 };
 
 const getBorderColor = ({
-  selected,
   correct,
+  selected,
   revealed,
 }: AnswerButtonProps): string => {
   if (selected) {
@@ -62,9 +62,9 @@ const getBorderColor = ({
 };
 
 export interface AnswerButtonProps {
-  selected: boolean;
   correct: boolean;
-  revealed: boolean;
+  selected?: boolean;
+  revealed?: boolean;
 }
 
 export const AnswerButton = styled.button`

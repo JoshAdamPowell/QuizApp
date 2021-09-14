@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useCallback, useContext } from "react";
 import { Answer } from "model/Answer";
+import { QuizDataContext } from "view/QuizView";
+import styled from "styled-components";
+import "fonts/fonts.css";
 import {
   AnswerButton,
   AnswerContentContainer,
@@ -7,37 +10,55 @@ import {
   AnswerTextWrapper,
   StyledImg,
 } from "./styled";
-
-interface AnswerContentProps {
-  answer: Answer;
-}
-
-const AnswerContent = ({ answer }: AnswerContentProps): React.ReactElement =>
-  answer.text && answer.image ? (
-    <AnswerContentContainer>
-      <AnswerContentItem>
-        <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
-      </AnswerContentItem>
-      <AnswerContentItem>
-        <StyledImg src={answer.image} />
-      </AnswerContentItem>
-    </AnswerContentContainer>
-  ) : (
-    <AnswerContentContainer>
-      {answer.text ? (
-        <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
-      ) : (
-        <StyledImg src={answer.image} />
-      )}
-    </AnswerContentContainer>
-  );
+import { QuestionState } from "model/QuestionState";
 
 interface AnswerCompProps {
   answer: Answer;
+  index: number;
 }
 
-export const AnswerComp = ({ answer }: AnswerCompProps): React.ReactElement => (
-  <AnswerButton selected={false} correct={answer.correct} revealed={true}>
-    <AnswerContent answer={answer} />
-  </AnswerButton>
-);
+export const AnswerComp = ({
+  answer,
+  index,
+}: AnswerCompProps): React.ReactElement => {
+  const { selectedAnswers, setSelectedAnswers, questionState } =
+    useContext(QuizDataContext);
+
+  const onClick = useCallback(() => {
+    const selections = [...selectedAnswers];
+    selections[index] = !selections[index];
+    setSelectedAnswers(selections);
+  }, [selectedAnswers]);
+
+  const revealed =
+    (selectedAnswers[index] || answer.correct) &&
+    questionState !== QuestionState.UNANSWERED;
+
+  return (
+    <AnswerButton
+      revealed={revealed}
+      correct={answer.correct}
+      selected={selectedAnswers[index]}
+      onClick={onClick}
+    >
+      {answer.text && answer.image ? (
+        <AnswerContentContainer>
+          <AnswerContentItem>
+            <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
+          </AnswerContentItem>
+          <AnswerContentItem>
+            <StyledImg src={answer.image} />
+          </AnswerContentItem>
+        </AnswerContentContainer>
+      ) : (
+        <AnswerContentContainer>
+          {answer.text ? (
+            <AnswerTextWrapper>{answer.text}</AnswerTextWrapper>
+          ) : (
+            <StyledImg src={answer.image} />
+          )}
+        </AnswerContentContainer>
+      )}
+    </AnswerButton>
+  );
+};

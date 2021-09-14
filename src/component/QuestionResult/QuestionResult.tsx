@@ -20,7 +20,9 @@ export const QuestionResult = ({
       <ResultTextWrapper>
         {correct ? "Well done!" : "Not quite :("}
       </ResultTextWrapper>
-      <ExplanationTextWrapper>{explanation}</ExplanationTextWrapper>
+      {explanation && (
+        <ExplanationTextWrapper>{explanation}</ExplanationTextWrapper>
+      )}
     </QuestionResultCard>
   </QuestionResultContainer>
 );
