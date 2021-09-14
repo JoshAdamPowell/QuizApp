@@ -16,6 +16,7 @@ export const QuestionAndImageContainer = styled.div`
 
 export const StyledQuestionImg = styled.img`
   height: 300px;
+  object-fit: contain;
 `;
 
 export const QuestionContainer = styled.div`
