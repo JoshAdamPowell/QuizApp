@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { Keyframes } from "styled-components";
 import "fonts/fonts.css";
 import {
   darkBlue,
@@ -11,6 +11,7 @@ import {
   midRed,
   white,
 } from "colours/colours";
+import { fadeInPulse, pulse, show } from "shared/animations";
 
 export const AnswerContentContainer = styled.div`
   display: flex;
@@ -61,10 +62,30 @@ const getBorderColor = ({
   }
 };
 
+const delay = 0.4;
+const duration = 0.6;
+
+const getAnimation = ({
+  correct,
+  revealed,
+}: AnswerButtonProps): (() => Keyframes) => {
+  if (!revealed) {
+    return fadeInPulse;
+  } else if (correct) {
+    return pulse;
+  } else {
+    return show;
+  }
+};
+
+const getDelay = ({ revealed, index }: AnswerButtonProps): number =>
+  revealed ? 0 : delay * index;
+
 export interface AnswerButtonProps {
   correct: boolean;
   selected?: boolean;
   revealed?: boolean;
+  index: number;
 }
 
 export const AnswerButton = styled.button`
@@ -73,8 +94,19 @@ export const AnswerButton = styled.button`
   color: ${white};
   padding: 16px;
   border-radius: 10px;
+  align-self: center;
+  justify-self: center;
+  padding: 10px;
   height: 100%;
   width: 100%;
+  opacity: 0;
+  transform: scale(1);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  animation: 
+    ${(props: AnswerButtonProps) => getAnimation(props)}
+    ${duration}s
+    ${(props: AnswerButtonProps) => getDelay(props)}s
+    ease-in forwards;
 
   ${(props: AnswerButtonProps) =>
     props.revealed

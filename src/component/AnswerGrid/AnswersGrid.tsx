@@ -5,14 +5,20 @@ import { AnswersContainer } from "./styled";
 
 interface AnswersCompProps {
   answers: Answer[];
+  questionIndex: number;
 }
 
 export const AnswersComp = ({
+  questionIndex,
   answers,
 }: AnswersCompProps): React.ReactElement => (
   <AnswersContainer>
-    {answers.map((answer, index) => (
-      <AnswerComp answer={answer} index={index} key={index} />
+    {answers.map((answer, answerIndex) => (
+      <AnswerComp
+        answer={answer}
+        key={`answer-${questionIndex}-${answerIndex}`} // TODO: make reveal state part of key
+        index={answerIndex}
+      />
     ))}
   </AnswersContainer>
 );

@@ -1,7 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import { Answer } from "model/Answer";
 import { QuizDataContext } from "view/QuizView";
-import styled from "styled-components";
 import "fonts/fonts.css";
 import {
   AnswerButton,
@@ -36,6 +35,7 @@ export const AnswerComp = ({
 
   return (
     <AnswerButton
+      index={index}
       revealed={revealed}
       correct={answer.correct}
       selected={selectedAnswers[index]}

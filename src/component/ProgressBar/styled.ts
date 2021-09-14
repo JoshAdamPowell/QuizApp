@@ -8,9 +8,11 @@ import {
   midRed,
   darkRed,
 } from "colours/colours";
+import { fadeInPulse } from "shared/animations";
 
 interface ProgressDotProps {
   state: QuestionState;
+  index: number;
 }
 
 const getBorderColor = (state: QuestionState): string => {
@@ -36,20 +38,39 @@ const getFillColor = (state: QuestionState): string => {
 };
 
 const progressDotAnim = (state: QuestionState): Keyframes => keyframes`
-  100%{ background-color: ${getFillColor(state)};
-      border-color:  ${getBorderColor(state)};
+  0% {
+    background-color: ${getFillColor(QuestionState.UNANSWERED)};
+    border-color:  ${getBorderColor(QuestionState.UNANSWERED)};
+    opacity: 1;
+  }
+  100%{ 
+    background-color: ${getFillColor(state)};
+    border-color:  ${getBorderColor(state)};
+    opacity: 1;
   }`;
 
+const duration = 1;
+const delay = 0.1;
+
+const getDelay = ({ state, index }: ProgressDotProps): number => {
+  if (state === QuestionState.UNANSWERED) {
+    return delay * index;
+  }
+  return 0;
+};
+
 export const ProgressDot = styled.div`
-  animation: ${({ state }: ProgressDotProps) => progressDotAnim(state)} 1s
-    forwards;
-  margin: 2px;
+  opacity: 0;
+  animation: ${fadeInPulse} ${duration}s
+      ${(props: ProgressDotProps) => getDelay(props)}s forwards,
+    ${({ state }: ProgressDotProps) => progressDotAnim(state)} ${duration}s
+      ${(props: ProgressDotProps) => getDelay(props)}s forwards;
+  margin: 15px;
   display: inline-block;
   width: 10px;
   height: 10px;
-  border: 2px solid ${getBorderColor(QuestionState.UNANSWERED)};
+  border: 2px solid;
   border-radius: 50%;
-  background-color: ${getFillColor(QuestionState.UNANSWERED)};
 `;
 
 export const ProgressContainer = styled.div`

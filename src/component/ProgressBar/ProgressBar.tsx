@@ -10,8 +10,12 @@ export const ProgressBar = ({
   questionStates,
 }: ProgressBarProps): React.ReactElement => (
   <ProgressContainer>
-    {questionStates.map((state, key) => (
-      <ProgressDot state={state} key={key} />
+    {questionStates.map((state, index) => (
+      <ProgressDot
+        state={state}
+        index={index}
+        key={`progress-${index}-${state.valueOf()}`}
+      />
     ))}
   </ProgressContainer>
 );

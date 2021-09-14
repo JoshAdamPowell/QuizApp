@@ -85,6 +85,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
             <ProgressBar questionStates={questionStates} />
             <MultiChoiceQComp
               showSummary={showSummary}
+              questionIndex={currentIndex}
               question={quiz.questions[currentIndex]}
             />
             <SubmitButton

@@ -14,11 +14,13 @@ import { QuestionState } from "model/QuestionState";
 interface MultiChoiceQProps {
   question: Question;
   showSummary: boolean;
+  questionIndex: number;
 }
 
 export const MultiChoiceQComp = ({
   question,
   showSummary,
+  questionIndex,
 }: MultiChoiceQProps): React.ReactElement => {
   const { questionState } = useContext(QuizDataContext);
 
@@ -34,7 +36,7 @@ export const MultiChoiceQComp = ({
           correct={questionState === QuestionState.CORRECT}
         />
       ) : (
-        <AnswersComp answers={question.answers} />
+        <AnswersComp answers={question.answers} questionIndex={questionIndex} />
       )}
     </MultiChoiceQContainer>
   );
