@@ -37,7 +37,7 @@ export const AnswerComp = ({
       revealed={revealed}
       correct={answer.correct}
       selected={selectedAnswers[index]}
-      onClick={revealed ? null : updateSelection}
+      onClick={!revealed && updateSelection}
     >
       {answer.text && answer.image ? (
         <AnswerContentContainer>
