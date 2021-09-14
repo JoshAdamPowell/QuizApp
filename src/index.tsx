@@ -12,11 +12,7 @@ const App = (): React.ReactElement => {
     return q;
   }); // shuffle answers within each question
   quiz.questions = shuffle(quiz.questions); // shuffled order of questions
-  return (
-    <section>
-      <QuizView quiz={quiz} />
-    </section>
-  );
+  return <QuizView quiz={quiz} />;
 };
 
 export interface Props {

@@ -9,9 +9,9 @@ interface ResultProps {
 
 export const QuestionResultContainer = styled.div`
   display: flex;
-  width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 2vw;
 `;
 
 export const QuestionResultCard = styled.div`
@@ -26,7 +26,7 @@ export const QuestionResultCard = styled.div`
   justify-content: center;
   text-align: center;
   padding: 16px;
-  height: 120px;
+  min-height: 120px;
   transform: scale(1);
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
   animation: ${fadeInPulse} 1.5s 1;

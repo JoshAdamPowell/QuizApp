@@ -7,7 +7,6 @@ import { QuestionState } from "model/QuestionState";
 import { Quiz } from "model/Quiz";
 import React, { useState } from "react";
 import { QuizContainer } from "./styled";
-import { QuestionResult } from "component/QuestionResult/QuestionResult";
 import { EndPage } from "component/EndPage/EndPage";
 
 interface QuizViewProps {

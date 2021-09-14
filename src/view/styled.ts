@@ -5,5 +5,5 @@ export const QuizContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  padding: 2vw;
 `;
