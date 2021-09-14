@@ -105,7 +105,7 @@ export function getTestQuiz(): Quiz {
         explanation: "It was Tyson and Ali",
       },
       {
-        text: "In the 2000 dark comedy film, American Psycho, which of the VP's at Pierce & Pierce has the best business card (excluding Bateman of course)",
+        text: "In the 2000 dark comedy film, American Psycho, which of the VP's at Pierce & Pierce has the best business card",
         questionType: QuestionType.single,
         image: "http://i.imgur.com/nVU8Z7R.jpg",
         answers: [
@@ -121,8 +121,32 @@ export function getTestQuiz(): Quiz {
             text: "Paul Allen",
             correct: true,
           },
+          {
+            text: "Patrick Bateman",
+            correct: false,
+          },
         ],
         explanation: "It was Tyson and Ali",
+      },
+      {
+        text: "What actor said this: 'My name is Maximus Decimus Meridius, commander of the Armies of the North, General of the Felix Legions and loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son. Husband to a murdered wife. And I will have my vengeance, in this life or the next.' and also this 'Who is this man? What sort of devil is he To have me caught in a trap And choose to let me go free? It was his hour at last To put a seal on my fate Wipe out the past And watch me clean off the slate All it would take Was a flick of his knife. Vengeance was his And he gave me back my life!'",
+        questionType: QuestionType.single,
+        image:
+          "https://image.shutterstock.com/image-vector/theatre-mask-icon-silhouette-drama-260nw-1939041568.jpg",
+        answers: [
+          {
+            text: "Russel Crowe",
+            correct: true,
+          },
+          {
+            text: "Matthew McConaughey",
+            correct: false,
+          },
+          {
+            text: "Joaquin Phoenix",
+            correct: false,
+          },
+        ],
       },
     ],
   };
