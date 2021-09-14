@@ -1,6 +1,5 @@
 import ChildSwitcherContainer from "component/ChildSwitcherContainer";
 import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
-<<<<<<< HEAD
 import { ProgressBar } from "component/ProgressBar/ProgressBar";
 import { StartScreen } from "component/StartScreen/StartScreen";
 import { SubmitButton } from "component/SubmitButton";
@@ -8,13 +7,8 @@ import { QuestionState } from "model/QuestionState";
 import { Quiz } from "model/Quiz";
 import React, { useState } from "react";
 import { QuizContainer } from "./styled";
-=======
 import { QuestionResult } from "component/QuestionResult/QuestionResult";
-<<<<<<< HEAD
 import { EndPage } from "component/EndPage/EndPage";
->>>>>>> daef062 (basic layout of finish page and alternating colours on congratulations)
-=======
->>>>>>> 672d1b5 (made changes from review - combining fonts, moving score into endpage)
 
 interface QuizViewProps {
   quiz: Quiz;
@@ -76,9 +70,6 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   const [currentScreen, setCurrentScreen] = useState(0);
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <QuizContainer>
       <QuizDataContext.Provider
         value={{
@@ -111,9 +102,10 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
               }
             />
           </>
-          <StartScreen
-            quizName={"Quiz is over, go home losers"}
-            onStartClick={() => {
+
+          <EndPage
+            questionStates={questionStates}
+            onRestartClick={() => {
               setCurrentScreen(0);
               setQuestionStates(questionStates.fill(QuestionState.UNANSWERED));
             }}
@@ -121,49 +113,6 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
         </ChildSwitcherContainer>
       </QuizDataContext.Provider>
     </QuizContainer>
-=======
-=======
->>>>>>> da0bdb6 (added score functionality)
-=======
->>>>>>> 7409b1c (added button for try again)
-    <>
-      <ProgressBar questionStates={questionStates} />
-      {currentIndex < quizLength ? (
-        <>
-          <button onClick={() => updateResult(Math.random() < 0.5)}>
-            Next Question
-          </button>
-          <MultiChoiceQComp question={quiz.questions[currentIndex]} />
-        </>
-      ) : (
-        <QuestionResult
-          explanation={quiz.questions[currentIndex - 1].explanation}
-          correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
-        />
-      )}
-    </>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> daef062 (basic layout of finish page and alternating colours on congratulations)
-=======
-=======
-    // <>
-    //   <ProgressBar questionStates={questionStates} />
-    //   {currentIndex < quizLength ? (
-    //     <>
-    //       <MultiChoiceQComp question={quiz.questions[currentIndex]} />
-    //       <button onClick={() => updateResult(Math.random() < 0.5)}>
-    //         Next Question
-    //       </button>
-    //     </>
-    //   ) : (
-    <EndPage questionStates={questionStates} />
-    //  )}
-    // </>
->>>>>>> e5ea511 (added score functionality)
->>>>>>> da0bdb6 (added score functionality)
-=======
->>>>>>> 7409b1c (added button for try again)
   );
 };
 
