@@ -2,7 +2,7 @@ import React from "react";
 
 interface ChildSwitcherContainerProps {
   index: number;
-  children: React.ReactElement[] | React.ReactElement;
+  children: React.ReactNode;
 }
 
 const ChildSwitcherContainer = ({

@@ -1,25 +1,16 @@
 import ChildSwitcherContainer from "component/ChildSwitcherContainer";
 import { MultiChoiceQComp } from "component/MultiChoiceQuestion/MultiChoiceQuestion";
 import { ProgressBar } from "component/ProgressBar/ProgressBar";
-import { QuestionResult } from "component/QuestionResult/QuestionResult";
 import { StartScreen } from "component/StartScreen/StartScreen";
 import { SubmitButton } from "component/SubmitButton";
 import { QuestionState } from "model/QuestionState";
 import { Quiz } from "model/Quiz";
 import React, { useState } from "react";
-import styled from "styled-components";
+import { QuizContainer } from "./styled";
 
 interface QuizViewProps {
   quiz: Quiz;
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-`;
 
 type AnswerSelections = boolean[];
 
@@ -78,7 +69,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
   const [currentScreen, setCurrentScreen] = useState(0);
 
   return (
-    <Container>
+    <QuizContainer>
       <QuizDataContext.Provider
         value={{
           selectedAnswers: selectedAnswers,
@@ -115,7 +106,7 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           />
         </ChildSwitcherContainer>
       </QuizDataContext.Provider>
-    </Container>
+    </QuizContainer>
   );
 };
 
