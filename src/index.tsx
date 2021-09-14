@@ -15,17 +15,27 @@ const App = (): React.ReactElement => {
   return (
     <section>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <QuizView quiz={quiz} />
 =======
       {/* {started == false ? (
+=======
+      {started == false ? (
+>>>>>>> 1960be9 (added onclick function)
         <StartScreen
           quizName={quiz.title}
           onStartClick={() => setStarted(true)}
         />
+<<<<<<< HEAD
       ) : ( */}
       <QuizView quiz={quiz} />
       {/* )} */}
 >>>>>>> 7409b1c (added button for try again)
+=======
+      ) : (
+        <QuizView quiz={quiz} />
+      )}
+>>>>>>> 1960be9 (added onclick function)
     </section>
   );
 };

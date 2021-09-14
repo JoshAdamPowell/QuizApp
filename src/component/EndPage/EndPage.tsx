@@ -1,14 +1,19 @@
-import { QuestionState } from "model/QuestionState";
-import React, { useEffect } from "react";
-import { getScore, QuestionStateProps, Score } from "component/Score/Score";
+import React from "react";
+import { getScore, Score } from "component/Score/Score";
 import {
   EndPageContainer,
   FinishingText,
   FinishingTextCharacter,
   TryAgainButton,
 } from "./styled";
+import { QuestionState } from "model/QuestionState";
 
-export const EndPage = ({ questionStates }: QuestionStateProps) => (
+interface EndPageProps {
+  questionStates: QuestionState[];
+  onRestartClick?: () => void;
+}
+
+export const EndPage = ({ questionStates, onRestartClick }: EndPageProps) => (
   <EndPageContainer>
     <FinishingText>
       {"Congratulations!!".split("").map((value, index) => (
@@ -17,6 +22,6 @@ export const EndPage = ({ questionStates }: QuestionStateProps) => (
     </FinishingText>
 
     <Score {...getScore({ questionStates })} />
-    <TryAgainButton>Try again!</TryAgainButton>
+    <TryAgainButton onClick={onRestartClick}>Try again!</TryAgainButton>
   </EndPageContainer>
 );

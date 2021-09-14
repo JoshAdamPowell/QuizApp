@@ -138,7 +138,6 @@ const QuizView = ({ quiz }: QuizViewProps): React.ReactElement => {
           correct={questionStates[currentIndex - 1] == QuestionState.CORRECT}
         />
       )}
-      {/* <EndPage questionStates={questionStates} /> */}
     </>
 <<<<<<< HEAD
 <<<<<<< HEAD
