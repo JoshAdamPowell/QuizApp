@@ -40,7 +40,11 @@ const getFillColor = ({
   revealed,
 }: AnswerButtonProps): string => {
   if (revealed) {
-    return correct ? midGreen : midRed;
+    if (correct) {
+      return midGreen;
+    } else {
+      return selected ? midRed : midBlue;
+    }
   } else {
     return selected ? midPurple : midBlue;
   }
@@ -54,8 +58,8 @@ const getBorderColor = ({
   if (selected) {
     return darkPurple;
   } else {
-    if (revealed) {
-      return correct ? darkGreen : darkRed;
+    if (revealed && correct) {
+      return darkGreen;
     } else {
       return darkBlue;
     }
@@ -112,5 +116,5 @@ export const AnswerButton = styled.button`
     props.revealed
       ? ""
       : `cursor: pointer;
-    &:hover { background: ${props.selected ? darkPurple : darkBlue};}`}
+      &:hover { background: ${props.selected ? darkPurple : darkBlue};}`}
 `;
