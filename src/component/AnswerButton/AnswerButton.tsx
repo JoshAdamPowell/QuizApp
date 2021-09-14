@@ -1,14 +1,13 @@
 import React, { useCallback, useContext } from "react";
 import { Answer } from "model/Answer";
 import { QuizDataContext } from "view/QuizView";
-import styled from "styled-components";
 import "fonts/fonts.css";
 import {
   AnswerButton,
   AnswerContentContainer,
   AnswerContentItem,
   AnswerTextWrapper,
-  StyledImg
+  StyledImg,
 } from "./styled";
 import { QuestionState } from "model/QuestionState";
 
@@ -36,6 +35,7 @@ export const AnswerComp = ({
 
   return (
     <AnswerButton
+      index={index}
       revealed={revealed}
       correct={answer.correct}
       selected={selectedAnswers[index]}
@@ -61,26 +61,4 @@ export const AnswerComp = ({
       )}
     </AnswerButton>
   );
-<<<<<<< HEAD
 };
-=======
-
-interface AnswerCompProps {
-  answer: Answer;
-  index: number;
-}
-
-export const AnswerComp = ({
-  answer,
-  index
-}: AnswerCompProps): React.ReactElement => (
-  <AnswerButton
-    selected={false}
-    correct={answer.correct}
-    revealed={false}
-    index={index}
-  >
-    <AnswerContent answer={answer} />
-  </AnswerButton>
-);
->>>>>>> Shuffle answers and order of appearance

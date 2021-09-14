@@ -85,6 +85,7 @@ export interface AnswerButtonProps {
   correct: boolean;
   selected?: boolean;
   revealed?: boolean;
+  index: number;
 }
 
 export const AnswerButton = styled.button`
