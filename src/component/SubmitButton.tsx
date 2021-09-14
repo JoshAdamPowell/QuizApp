@@ -1,14 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import {
-  white,
-  midNavy,
-  darkNavy,
-  midGrey,
-  darkGrey,
-  black,
-} from "colours/colours";
+import { white, midNavy, darkNavy, darkGrey, black } from "colours/colours";
+
 const StyledButton = styled.button`
   background: ${midNavy};
   border: 2px solid ${darkNavy};
