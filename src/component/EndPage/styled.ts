@@ -24,7 +24,7 @@ interface IndexProps {
   index: number;
 }
 
-const getTextColour = (index: number) => {
+const getTextColour = (index: number): string => {
   const colours = [midRed, midOrange, midBlue, midNavy, midPurple, midGreen];
   return colours[index % colours.length];
 };

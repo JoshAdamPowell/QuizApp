@@ -13,11 +13,16 @@ interface EndPageProps {
   onRestartClick?: () => void;
 }
 
-export const EndPage = ({ questionStates, onRestartClick }: EndPageProps) => (
+export const EndPage = ({
+  questionStates,
+  onRestartClick,
+}: EndPageProps): React.ReactElement => (
   <EndPageContainer>
     <FinishingText>
       {"Congratulations!!".split("").map((value, index) => (
-        <FinishingTextCharacter index={index}>{value}</FinishingTextCharacter>
+        <FinishingTextCharacter index={index} key={index}>
+          {value}
+        </FinishingTextCharacter>
       ))}
     </FinishingText>
 

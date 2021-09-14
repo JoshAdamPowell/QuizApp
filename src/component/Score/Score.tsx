@@ -11,7 +11,9 @@ export interface ScoreInfoProps {
   totalQuestions: number;
 }
 
-export const getScore = ({ questionStates }: QuestionStateProps) => {
+export const getScore = ({
+  questionStates,
+}: QuestionStateProps): ScoreInfoProps => {
   let score = 0;
   const totalQuestions = questionStates.length;
   for (let i = 0; i < questionStates.length; i++) {
