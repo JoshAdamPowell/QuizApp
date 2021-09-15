@@ -35,7 +35,7 @@ export const FinishingTextCharacter = styled.span`
 
 export const FinishingText = styled.div`
   font-family: "Riangriung";
-  font-size: 550%;
+  font-size: 7vw;
 `;
 
 export const TryAgainButton = styled.div`
@@ -57,7 +57,7 @@ export const TryAgainButton = styled.div`
 
 export const ScoreText = styled.div`
   font-family: "Luckiest Guy", cursive;
-  font-size: 300%;
+  font-size: 6vw;
   display: flex;
   width: 100%;
   justify-content: center;

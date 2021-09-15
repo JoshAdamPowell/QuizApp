@@ -5,7 +5,7 @@ import { darkNavy, darkYellow, midNavy, white } from "colours/colours";
 export const QuizTitle = styled.div`
   color: ${darkYellow};
   font-family: Riangriung;
-  font-size: 550%;
+  font-size: 7vw;
   -webkit-text-stroke: 2px black;
   text-align: center;
 `;
